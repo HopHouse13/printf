@@ -6,11 +6,11 @@
 /*   By: pbret <pbret@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 17:53:44 by pbret             #+#    #+#             */
-/*   Updated: 2024/07/08 15:26:40 by pbret            ###   ########.fr       */
+/*   Updated: 2025/01/16 12:50:14 by pbret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 /*ft_flags gene les 3 flags: '#''space''+'
 >	'#': utilise avec les valeurs octales et hexadecimales.
 si Flag -> prefixe '0' ou '0x' (%x%X%o)
@@ -24,7 +24,7 @@ void	ft_flags(const char *str, int i, int *count)
 	if (str[i -1] == ' ' && str[i -2] == '%')
 		ft_putchar_count(' ', count);
 	if (((str[i -1] == '#' && str[i -2] == '%') && (str[i] == 'x'
-				|| str[i] == 'p')) || str[i -1] == '%' && str[i] == 'p')
+				|| str[i] == 'p')) || (str[i -1] == '%' && str[i] == 'p'))
 		ft_putstr("0x", count);
 	if (((str[i -1] == '#' && str[i -2] == '%')) && str[i] == 'X')
 		ft_putstr("0X", count);
